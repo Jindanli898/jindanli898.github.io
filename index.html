@@ -83,9 +83,6 @@ To fully harvest the efficiency of AIMC, it is crucial to enable in-memory train
 <p>
 <b>Multi-tile Residual Learning for In-Memory Analog Training.</b>
 My recent work proposes a multi-tile residual learning strategy to overcome the limited conductance-state bottleneck in AIMC training. The key idea is to represent each weight as a composite sum across multiple analog tiles, where each tile stores a residual component with geometric scaling. This structure expands the effective representable precision beyond what a single low-state device can provide. During training, tiles are coordinated using a multi-timescale schedule: earlier tiles capture coarse updates, and subsequent tiles progressively learn the residual left by preceding tiles, refining the solution over time. This residual decomposition improves robustness under device non-idealities (e.g., discretized updates and asymmetric responses) and supports stable convergence in low-state regimes.
-</p>
-
-<p>
 I validate the approach on standard image classification benchmarks (e.g., MNIST/Fashion-MNIST and CIFAR-10/100 with ResNet-style models) using analog training simulator, and analyze the associated efficiency trade-offs when scaling the number of tiles.
 </p>
 
