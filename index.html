@@ -71,16 +71,16 @@ Modern deep learning training increasingly suffers from the cost of moving data 
 </p>
 
 <p>
-To fully harvest the efficiency of AIMC, it is crucial to enable <b>in-memory training</b>, where weight updates are applied directly on analog arrays via rank-update mechanisms driven by pulse streams. However, accurate training on real analog hardware is challenging due to intrinsic non-idealities. In particular, many practical memristive devices provide only a limited number of stable conductance states (often around 4-bit resolution), and their update behavior is <b>asymmetric</b> and <b>state-dependent</b>. These effects lead to unstable convergence and degraded accuracy.
+To fully harvest the efficiency of AIMC, it is crucial to enable in-memory training , where weight updates are applied directly on analog arrays via rank-update mechanisms driven by pulse streams. However, accurate training on real analog hardware is challenging due to intrinsic non-idealities. In particular, many practical memristive devices provide only a limited number of stable conductance states (often around 4-bit resolution), and their update behavior is asymmetric  and state-dependent. These effects lead to unstable convergence and degraded accuracy.
 </p>
 
 <p>
-My research focuses on <b>algorithmic training frameworks that operate natively on analog hardware</b>. The goal is to make in-memory training robust to limited precision and device asymmetry while preserving the parallelism and efficiency advantages of AIMC.
+My research focuses on algorithmic training frameworks that operate natively on analog hardware. The goal is to make in-memory training robust to limited precision and device asymmetry while preserving the parallelism and efficiency advantages of AIMC.
 </p>
 
 <p>
 <b>Multi-tile Residual Learning for In-Memory Analog Training.</b>
-My recent work proposes a <b>multi-tile residual learning</b> strategy to overcome the limited conductance-state bottleneck in AIMC training. The key idea is to represent each weight as a <b>composite sum across multiple analog tiles</b>, where each tile stores a residual component with <b>geometric scaling</b>. This structure expands the effective representable precision beyond what a single low-state device can provide. During training, tiles are coordinated using a <b>multi-timescale schedule</b>: earlier tiles capture coarse updates, and subsequent tiles progressively learn the residual left by preceding tiles, refining the solution over time. This residual decomposition improves robustness under device non-idealities (e.g., discretized updates and asymmetric responses) and supports stable convergence in low-state regimes.
+My recent work proposes a multi-tile residual learning strategy to overcome the limited conductance-state bottleneck in AIMC training. The key idea is to represent each weight as a composite sum across multiple analog tiles, where each tile stores a residual component with geometric scaling. This structure expands the effective representable precision beyond what a single low-state device can provide. During training, tiles are coordinated using a multi-timescale schedule: earlier tiles capture coarse updates, and subsequent tiles progressively learn the residual left by preceding tiles, refining the solution over time. This residual decomposition improves robustness under device non-idealities (e.g., discretized updates and asymmetric responses) and supports stable convergence in low-state regimes.
 </p>
 
 <p>
