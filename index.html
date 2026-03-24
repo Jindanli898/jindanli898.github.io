@@ -60,41 +60,22 @@ I am currently a Ph.D. student at Cornell University, and am fortunately advised
 Prof. Chen. In Spring 2025, I also served as a Teaching Assistant for the undergraduate course <i>ECSE 2500 – Engineering Probability</i> at RPI.
 I received my B.Eng. in Information Engineering from Zhejiang University in July 2024.
 </p>
-
-<!-- <h2>Research</h2>
-<p><b>Research interests:</b> Analog In-Memory Computing (AIMC), wireless communication.</p>
-
-<p>
-<b>Residual Learning for AIMC Training.</b>  
-My recent work focuses on a residual learning strategy across multiple analog tiles to overcome the challenges of limited conductance states and asymmetric update dynamics in AIMC. 
-The key idea is to decompose weight updates into residual components with geometric scaling, ensuring each tile operates within a stable dynamic range. 
-This approach improves effective precision and robustness under device non-idealities.  
-
-</p> -->
 <h2>Research</h2>
 
-<p><b>Research interests:</b> Analog In-Memory Computing (AIMC), in-memory (in-situ) training algorithms, and wireless communication.</p>
+<p><b>Research interests:</b> Physical neural networks, analog learning systems, robust training on non-ideal hardware, and wireless communication.</p>
 
 <p>
-My research focuses on algorithmic training frameworks that operate natively on analog hardware. The goal is to make in-memory training robust to limited precision and device asymmetry while preserving the parallelism and efficiency advantages of AIMC.
+My research focuses on <b>physical learning</b>: how to train neural networks directly on analog hardware despite limited precision, asymmetric updates, and other device non-idealities. Rather than treating hardware imperfections as an afterthought, I design training algorithms that work with the underlying device physics and enable reliable on-chip learning.
+</p>
+
+<p>
+One platform I study is analog hardware based on resistive device arrays, where weights are stored as physical conductance states and updated directly on-chip. My recent work proposes a <b>multi-tile residual learning</b> framework that represents each weight across multiple physical tiles with geometric scaling, improving effective precision and robustness under low-state, asymmetric device behavior.
+</p>
+
+<p>
+I evaluate these ideas on image classification benchmarks including MNIST, Fashion-MNIST, CIFAR-10, and CIFAR-100 using analog hardware simulation, and analyze the resulting accuracy-efficiency trade-offs.
 </p>
   
-<p>
-Modern deep learning training increasingly suffers from the cost of moving data between memory and compute units, which limits both throughput and energy efficiency in conventional von Neumann architectures. Analog In-Memory Computing (AIMC) offers a promising alternative by performing computation directly inside memory arrays. In AIMC accelerators, neural network parameters are stored as the conductance states of resistive devices arranged in crossbar arrays, and matrix–vector multiplication (MVM) can be executed in a highly parallel and energy-efficient manner by leveraging circuit physics (e.g., Ohm’s and Kirchhoff’s laws).
-</p>
-
-<p>
-To fully harvest the efficiency of AIMC, it is crucial to enable in-memory training , where weight updates are applied directly on analog arrays via rank-update mechanisms driven by pulse streams. However, accurate training on real analog hardware is challenging due to intrinsic non-idealities. In particular, many practical memristive devices provide only a limited number of stable conductance states (often around 4-bit resolution), and their update behavior is asymmetric  and state-dependent. These effects lead to unstable convergence and degraded accuracy.
-</p>
-
-
-
-<p>
-<b>Multi-tile Residual Learning for In-Memory Analog Training.</b>
-My recent work proposes a multi-tile residual learning strategy to overcome the limited conductance-state bottleneck in AIMC training. The key idea is to represent each weight as a composite sum across multiple analog tiles, where each tile stores a residual component with geometric scaling. This structure expands the effective representable precision beyond what a single low-state device can provide. During training, tiles are coordinated using a multi-timescale schedule: earlier tiles capture coarse updates, and subsequent tiles progressively learn the residual left by preceding tiles, refining the solution over time. This residual decomposition improves robustness under device non-idealities (e.g., discretized updates and asymmetric responses) and supports stable convergence in low-state regimes.
-I validate the approach on standard image classification benchmarks (e.g., MNIST/Fashion-MNIST and CIFAR-10/100 with ResNet-style models) using analog training simulator, and analyze the associated efficiency trade-offs when scaling the number of tiles.
-</p>
-
 <h2>News</h2>
 <p>
   Our paper has been accepted to <b>AISTATS 2026</b>. The full paper is available on
